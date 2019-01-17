@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_layout</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"
+        />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- style for editText in sign up  -->
+    <style name="Sign_EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/EditTextColor</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:padding">@dimen/dim_10_dp</item>
+        <item name="android:textSize">@dimen/dim_16_dp</item>
+    </style>
+
+    <!-- style for TextView in sign up  -->
+    <style name="Sign_TextVierStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/EditTextColor</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:padding">@dimen/dim_10_dp</item>
+        <item name="android:textSize">@dimen/dim_16_dp</item>
+    </style>
+
+    <!-- style for Button in sign up  -->
+    <style name="Sign_ButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/EditTextColor</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/dim_15_sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">@dimen/dim_20_dp</item>
+        <item name="android:layout_marginTop">@dimen/dim_20_dp</item>
+        <item name="android:layout_marginRight">@dimen/dim_20_dp</item>
+    </style>
+    <!-- style for linearLayout -->
+    <style name="VerticalThemeLayoutInputs">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/background_for_edit_login</item>
+        <item name="android:layout_marginLeft">@dimen/dim_15_dp</item>
+        <item name="android:layout_marginTop">@dimen/dim_15_dp</item>
+        <item name="android:layout_marginRight">@dimen/dim_15_dp</item>
+        <item name="android:paddingLeft">@dimen/dim_5_dp</item>
+    </style>
+</resources>

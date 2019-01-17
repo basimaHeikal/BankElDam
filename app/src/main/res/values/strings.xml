@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">BankElDam</string>
+    <string name="SplashTvRightsString">جميع الحقوق محفوظه لشركة ابداع تك للبرمجيات 2018</string>
+    <string name="SplashBtSkipText">تخطي</string>
+    <string name="SplashEtPhoneText">الجوال</string>
+    <string name="SplashEtPasswordText">كلمة المرور</string>
+    <string name="SplashCkText">تذكرني</string>
+    <string name="SplashTvForgetPasswordText"> هل نسيت كلمة المرور</string>
+    <string name="SplashBtLoginText">دخول</string>
+    <string name="SplashBtSignText">إنشاء حساب جديد</string>
+    <string name="SplashEtNameText">الإسم</string>
+    <string name="SplashEtEmailText">البريد الإلكتروني</string>
+    <string name="SplashEtBirthDateText">تاريخ الميلاد</string>
+    <string name="SplashEtBloodTypeText">فصيلة الدم</string>
+    <string name="SplashTvGovernmentText">المحافظه</string>
+    <string name="SplashTvCityText">المدينه</string>
+    <string name="SplashEtPasswordConfirmText">تأكيد كلمة المرور</string>
+    <string name="SplashBtRegisterText">تسجيل</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="SignBloodTypeDialogTitle">فصيلة الدم</string>
+    <string name="openDrawer">open</string>
+    <string name="closeDrawer">close</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="SplashTvRightsColor">#686767</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGreen">#3FB151</color>
+    <color name="colorBlue">#3993DD</color>
+    <color name="colorNav">#314255</color>
+    <color name="SplashBtSkipColor">#F1F1F1</color>
+    <color name="EditTextColor">#00000000</color>
+
+</resources>
