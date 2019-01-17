@@ -22,7 +22,7 @@ import com.ipda3.bankeldam.ui.fragments.FavoritesFragment;
 import com.ipda3.bankeldam.ui.fragments.HomeFragment;
 import com.ipda3.bankeldam.ui.fragments.HowToUseFragment;
 import com.ipda3.bankeldam.ui.fragments.MyInformationFragment;
-import com.ipda3.bankeldam.ui.fragments.NotificationsFragment;
+import com.ipda3.bankeldam.ui.fragments.NotificationsSettingsFragment;
 import com.ipda3.bankeldam.ui.fragments.ReportFragment;
 
 import butterknife.BindView;
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     HomeFragment homeFragment;
     MyInformationFragment myInformationFragment;
-    NotificationsFragment notificationsFragment;
+    NotificationsSettingsFragment notificationsSettingsFragment;
     FavoritesFragment favoritesFragment;
     HowToUseFragment howToUseFragment;
     ReportFragment reportFragment;
@@ -139,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
                 myInformationFragment  = new MyInformationFragment();
                 return myInformationFragment;
             case 2:
-                notificationsFragment  = new NotificationsFragment();
-                return notificationsFragment;
+                notificationsSettingsFragment  = new NotificationsSettingsFragment();
+                return notificationsSettingsFragment;
 
             case 3:
                 favoritesFragment = new FavoritesFragment();

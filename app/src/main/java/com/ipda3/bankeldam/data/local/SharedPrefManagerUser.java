@@ -14,6 +14,7 @@ import static com.ipda3.bankeldam.helper.Constants.SHARED_USER_EMAIL;
 import static com.ipda3.bankeldam.helper.Constants.SHARED_USER_LAST_DONATE;
 import static com.ipda3.bankeldam.helper.Constants.SHARED_USER_NAME;
 import static com.ipda3.bankeldam.helper.Constants.SHARED_USER_PHONE;
+import static com.ipda3.bankeldam.helper.Constants.SHARED_USER_REMEMBER_ME;
 
 public class SharedPrefManagerUser {
 
@@ -21,6 +22,8 @@ public class SharedPrefManagerUser {
     private static final String SHARED_PREF_NAME = SHARED_PREF_USER;
 
     private static final String KEY_API_TOKEN = SHARED_USER_API_TOKEN;
+
+    private static final String KEY_REMEMBER_ME = SHARED_USER_REMEMBER_ME;
 
     private static final String KEY_NAME = SHARED_USER_NAME;
     private static final String KEY_EMAIL = SHARED_USER_EMAIL;

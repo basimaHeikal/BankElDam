@@ -21,6 +21,7 @@ public interface Constants {
     //Shared Preference user
     String SHARED_PREF_USER = "SharedPrefUser";
     String SHARED_USER_API_TOKEN= "KeyApiToken";
+    String SHARED_USER_REMEMBER_ME= "KeyRememberMe";
     String SHARED_USER_NAME = "KeyUserName";
     String SHARED_USER_EMAIL = "KeyUserEmail";
     String SHARED_USER_BIRTH = "KeyUserBirth";

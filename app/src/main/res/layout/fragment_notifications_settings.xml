@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/main_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/NotSettingsRvGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <Button
+        android:id="@+id/NotSettingsBtSave"
+        android:text="@string/NotSettingsBtSaveText"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/SplashLlSignLastDonate"
+        android:background="@color/colorNav"
+        style="@style/Sign_ButtonStyle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dim_20_dp"
+        />
+</RelativeLayout>

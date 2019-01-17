@@ -22,4 +22,15 @@
     <string name="SignBloodTypeDialogTitle">فصيلة الدم</string>
     <string name="openDrawer">open</string>
     <string name="closeDrawer">close</string>
+    <string name="MyInfoBtEditText">تعديل</string>
+    <string name="NotSettingsBtSaveText">حفظ</string>
+    <string name="NotSetTvBloodTypeText">فصيلة الدم :</string>
+    <string name="NotSetTvCityText">المدينه :</string>
+    <string name="ReportEtMessageText">نص الرساله</string>
+    <string name="ReportBtSendText">إرسال</string>
+    <string name="LoginProgressMessage">تسجيل الدخول....</string>
+    <string name="ReportProgressMessage">إبلاغ....</string>
+    <string name="SignProgressMessage">إنشاء الحساب....</string>
+    <string name="ContactBtContactText">تواصل معنا</string>
+
 </resources>

@@ -28,6 +28,21 @@
         <item name="android:textSize">@dimen/dim_16_dp</item>
     </style>
 
+    <!-- style for editText in contact us  -->
+    <style name="ContactUs_EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/dim_10_dp</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:textSize">@dimen/dim_16_dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">@dimen/dim_20_dp</item>
+        <item name="android:layout_marginTop">@dimen/dim_10_dp</item>
+        <item name="android:layout_marginRight">@dimen/dim_20_dp</item>
+        <item name="android:paddingLeft">@dimen/dim_5_dp</item>
+        <item name="android:background">@drawable/background_for_edit_login</item>
+    </style>
+
     <!-- style for TextView in sign up  -->
     <style name="Sign_TextVierStyle" parent="@android:style/Widget.TextView">
         <item name="android:layout_height">wrap_content</item>

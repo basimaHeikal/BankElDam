@@ -94,8 +94,8 @@ public class SignFragment extends Fragment {
     HashMap<String, String> hashMapCity;
     List<String> governmentList;
     HashMap<String, String> hashMapGovernment;
-    String bloodType;
     String cityId;
+    String[] bloodType;
 
 
     @Override
@@ -110,8 +110,8 @@ public class SignFragment extends Fragment {
         governmentList = new ArrayList<String>();
         hashMapGovernment = new HashMap<String, String>();
         spinnerOnItemSelectedListener();
-
-        getGovernments();
+        HelperMethod.getInstance(getActivity()).getGovernments(getActivity(),governmentList,hashMapGovernment,SignSpGovernment);
+//        getGovernments();
         return rootView;
     }
 
@@ -125,13 +125,19 @@ public class SignFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.SignTvBirthDate:
-                openDateDialog(SIGN_BIRTH_DATE);
+//                openDateDialog(SIGN_BIRTH_DATE);
+                HelperMethod.getInstance(getActivity()).openDateDialog(getActivity(),SIGN_BIRTH_DATE);
                 break;
             case R.id.SignTvBloodType:
-                bloodTypesDialog();
+//                bloodTypesDialog();
+                String[] bloodType = HelperMethod.getInstance(getActivity()).bloodTypesDialog(getActivity());
+                SignTvBloodType.setText(bloodType[0]);
+
                 break;
             case R.id.SignTvLasDonate:
-                openDateDialog(SIGN_LAST_DONATE);
+//                openDateDialog(SIGN_LAST_DONATE);
+                HelperMethod.getInstance(getActivity()).openDateDialog(getActivity(),SIGN_LAST_DONATE);
+
                 break;
             case R.id.SignBtRegister:
                 Register();
@@ -146,103 +152,104 @@ public class SignFragment extends Fragment {
     }
 
 
-    private void openDateDialog(String value) {
-        SharedPrefManager.getInstance(getActivity()).setKEY_DIALOG(value);
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), DATE_PICKER);
-    }
+//    private void openDateDialog(String value) {
+//        SharedPrefManager.getInstance(getActivity()).setKEY_DIALOG(value);
+//        DialogFragment newFragment = new DatePickerFragment();
+//        newFragment.show(getFragmentManager(), DATE_PICKER);
+//    }
 
-    private void bloodTypesDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.SignBloodTypeDialogTitle);
+//    private void bloodTypesDialog() {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        builder.setTitle(R.string.SignBloodTypeDialogTitle);
+//
+//        //list of items
+//        final String[] bloodTypes = BLOOD_TYPES;
+//        builder.setSingleChoiceItems(bloodTypes, 0,
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // item selected logic
+//                        bloodType = String.valueOf(bloodTypes[which]);
+//                        SignTvBloodType.setText(bloodType);
+//                    }
+//                });
+//        builder.setPositiveButton(android.R.string.ok,
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // positive button logic
+//                    }
+//                });
+//        AlertDialog dialog = builder.create();
+//        // display dialog
+//        dialog.show();
+//    }
 
-        //list of items
-        final String[] bloodTypes = BLOOD_TYPES;
-        builder.setSingleChoiceItems(bloodTypes, 0,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // item selected logic
-                        bloodType = String.valueOf(bloodTypes[which]);
-                        SignTvBloodType.setText(bloodType);
-                    }
-                });
-        builder.setPositiveButton(android.R.string.ok,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // positive button logic
-                    }
-                });
-        AlertDialog dialog = builder.create();
-        // display dialog
-        dialog.show();
-    }
+//    private void getCities(String governorate_id) {
+//        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+//
+//        Call<CitiesResponse> call = apiInterface.getCitiesList(governorate_id);
+//        call.enqueue(new Callback<CitiesResponse>() {
+//            @Override
+//            public void onResponse(Call<CitiesResponse> call, Response<CitiesResponse> response) {
+//                //get response values
+//
+//                if (response.isSuccessful()) {
+//
+//                    List<Datum> listDatum = response.body().getData();
+//                    for (int i = 0; i < listDatum.size(); i++) {
+//                        String name = listDatum.get(i).getName();
+//                        String id = String.valueOf(listDatum.get(i).getId());
+//                        cityList.add(name);
+//                        hashMapCity.put(name, id);
+//                    }
+//                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, cityList);
+//                    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+//                    SignSpCity.setAdapter(adapter);
+//
+//
+//                } else {
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<CitiesResponse> call, Throwable t) {
+//            }
+//        });
+//    }
 
-    private void getCities(String governorate_id) {
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-
-        Call<CitiesResponse> call = apiInterface.getCitiesList(governorate_id);
-        call.enqueue(new Callback<CitiesResponse>() {
-            @Override
-            public void onResponse(Call<CitiesResponse> call, Response<CitiesResponse> response) {
-                //get response values
-
-                if (response.isSuccessful()) {
-                    List<Datum> listDatum = response.body().getData();
-                    for (int i = 0; i < listDatum.size(); i++) {
-                        String name = listDatum.get(i).getName();
-                        String id = String.valueOf(listDatum.get(i).getId());
-                        cityList.add(name);
-                        hashMapCity.put(name, id);
-                    }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, cityList);
-                    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                    SignSpCity.setAdapter(adapter);
-
-
-                } else {
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CitiesResponse> call, Throwable t) {
-            }
-        });
-    }
-
-    private void getGovernments() {
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-
-        Call<GovernoratesResponse> call = apiInterface.getGovernoratesList();
-        call.enqueue(new Callback<GovernoratesResponse>() {
-            @Override
-            public void onResponse(Call<GovernoratesResponse> call, Response<GovernoratesResponse> response) {
-                //get response values
-
-                if (response.isSuccessful()) {
-                    List<DatumG> listDatum = response.body().getData();
-                    for (int i = 0; i < listDatum.size(); i++) {
-                        String name = listDatum.get(i).getName();
-                        String id = String.valueOf(listDatum.get(i).getId());
-                        governmentList.add(name);
-                        hashMapGovernment.put(name, id);
-                    }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, governmentList);
-                    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                    SignSpGovernment.setAdapter(adapter);
-
-                } else {
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GovernoratesResponse> call, Throwable t) {
-            }
-        });
-    }
+//    private void getGovernments() {
+//        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+//
+//        Call<GovernoratesResponse> call = apiInterface.getGovernoratesList();
+//        call.enqueue(new Callback<GovernoratesResponse>() {
+//            @Override
+//            public void onResponse(Call<GovernoratesResponse> call, Response<GovernoratesResponse> response) {
+//                //get response values
+//
+//                if (response.isSuccessful()) {
+//                    List<DatumG> listDatum = response.body().getData();
+//                    for (int i = 0; i < listDatum.size(); i++) {
+//                        String name = listDatum.get(i).getName();
+//                        String id = String.valueOf(listDatum.get(i).getId());
+//                        governmentList.add(name);
+//                        hashMapGovernment.put(name, id);
+//                    }
+//                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, governmentList);
+//                    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+//                    SignSpGovernment.setAdapter(adapter);
+//
+//                } else {
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<GovernoratesResponse> call, Throwable t) {
+//            }
+//        });
+//    }
 
     private void spinnerOnItemSelectedListener() {
         SignSpGovernment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -255,7 +262,8 @@ public class SignFragment extends Fragment {
                 //set government name to the textView
                 SignTvGovernment.setText(item);
                 //get cities
-                getCities(governmentId);
+//                getCities(governmentId);
+                HelperMethod.getInstance(getActivity()).getCities(getActivity(),governmentId,cityList,hashMapCity,SignSpCity);
             }
 
             @Override
@@ -292,21 +300,27 @@ public class SignFragment extends Fragment {
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         //declare a progress dialog
-        final ProgressDialog pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Register...");
-        pDialog.show();
+        HelperMethod.getInstance(getActivity()).initialProgressDialog(getActivity(),getString(R.string.SignProgressMessage));
+
         Call<RegisterResponse> call = apiInterface.Register(name,email,birth_date,cityId,phone,donation_last_date,password,
-                password_confirm,bloodType);
+                password_confirm,bloodType[0]);
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 //get response values
-                pDialog.hide();
+                HelperMethod.getInstance(getActivity()).hideProgressDialog();
                 if (response.isSuccessful()) {
-                    storeUserData(response);
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
+                    int status = response.body().getStatus();
+                    if(status==0){
+                        String msg = response.body().getMsg();
+                        HelperMethod.getInstance(getActivity()).callToast(getActivity(),msg);
+                    }else if(status==1){
+                        storeUserData(response);
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+
                 } else {
 
                 }
@@ -314,7 +328,7 @@ public class SignFragment extends Fragment {
 
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                pDialog.hide();
+                HelperMethod.getInstance(getActivity()).hideProgressDialog();
                 HelperMethod.getInstance(getActivity()).callToast(getActivity(),t.toString());
 
             }

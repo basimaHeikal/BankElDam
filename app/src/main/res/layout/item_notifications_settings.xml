@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/NotSettingsTvCbLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="الاسم"
+        android:textColor="@color/colorNav"
+        android:textSize="18sp"
+        android:layout_toLeftOf="@+id/NotSettingsCb"
+        />
+
+
+    <CheckBox
+        android:id="@+id/NotSettingsCb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+</RelativeLayout>

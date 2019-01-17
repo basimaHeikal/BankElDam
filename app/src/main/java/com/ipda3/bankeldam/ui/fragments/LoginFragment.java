@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.app.ProgressDialog;
 
 
 import com.ipda3.bankeldam.R;
@@ -58,6 +58,7 @@ public class LoginFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
         unbinder = ButterKnife.bind(this, rootView);
+
         return rootView;
     }
 
@@ -88,20 +89,28 @@ public class LoginFragment extends Fragment {
         String password =LoginEtPassword.getText().toString();
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         //declare a progress dialog
-        final ProgressDialog pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Login...");
-        pDialog.show();
+
+        HelperMethod.getInstance(getActivity()).initialProgressDialog(getActivity(),getString(R.string.LoginProgressMessage));
+
         Call<LoginResponse> call = apiInterface.Login(phone,password);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 //get response values
-                pDialog.hide();
+                HelperMethod.getInstance(getActivity()).hideProgressDialog();
                 if (response.isSuccessful()) {
-                    storeUserData(response);
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
+                    int status = response.body().getStatus();
+                    if(status==0){
+                        String msg = response.body().getMsg();
+                        HelperMethod.getInstance(getActivity()).callToast(getActivity(),msg);
+                    }else if(status==1){
+
+                        storeUserData(response);
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+
                 } else {
 
                 }
@@ -109,7 +118,7 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                pDialog.hide();
+                HelperMethod.getInstance(getActivity()).hideProgressDialog();
                 HelperMethod.getInstance(getActivity()).callToast(getActivity(),t.toString());
 
             }

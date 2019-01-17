@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.ipda3.bankeldam.R;
+import com.ipda3.bankeldam.data.local.SharedPrefManagerUser;
 
 import static com.ipda3.bankeldam.helper.Constants.SPLASH_TIME;
 
@@ -15,6 +16,13 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*if the user is already logged in ==>> directly start the start activity*/
+        if (SharedPrefManagerUser.getInstance(this).isLoggedIn()) {
+            finish();
+            //opening start activity
+            startActivity(new Intent(this, MainActivity.class));
+            return;
+        }
         setContentView(R.layout.activity_splash);
 
         new Handler().postDelayed(new Runnable() {

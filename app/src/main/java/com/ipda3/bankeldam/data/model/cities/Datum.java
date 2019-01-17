@@ -25,6 +25,10 @@ public class Datum {
     @Expose
     private Governorate governorate;
 
+    public Datum(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }
